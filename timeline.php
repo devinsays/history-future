@@ -28,8 +28,10 @@ if ( $timelineObj->have_posts() ) {
 		$timelineObj->the_post();
 		if ( has_post_thumbnail() ) {
   			$thumbnail = get_the_post_thumbnail(null,'timeline-thumb');
+  			$lazyimg= 'src="' . get_template_directory_uri() . '/images/pixel.gif" data-src=';
+  			$thumbnail = str_replace('src=', $lazyimg, $thumbnail);
 		} else {
-			$thumbnail = '<img src="' . get_template_directory_uri() . '/images/sample.jpg" />';
+			$thumbnail = '<img src="' . get_template_directory_uri() . '/images/pixel.gif" />';
 		} 
 		$timestamp = get_post_meta($post->ID, '_timelinetimestamp', true);
 		$year = get_post_meta($post->ID, '_year', true);

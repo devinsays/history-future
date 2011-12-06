@@ -186,10 +186,10 @@ add_filter( 'body_class', 'historyfuture_body_classes' );
  */
  
  function historyfuture_enqueue_scripts() {
- 	wp_register_script( 'timelinr',  get_template_directory_uri() . '/js/jquery.timelinr.js', array('jquery') );
+ 	wp_register_script( 'timelinr',  get_template_directory_uri() . '/js/jquery.timelinr.js', array('jquery'),null,true );
  	wp_register_script( 'byron_custom',  get_template_directory_uri() . '/js/historyfuture_custom.js', array('jquery','timelinr'),null,true );
     wp_register_script( 'historyjs',  get_template_directory_uri() . '/js/jquery.history.js', array('jquery'),null,true );
-    wp_register_script( 'clock',  get_template_directory_uri() . '/js/clock.js', array('jquery') );
+    wp_register_script( 'clock',  get_template_directory_uri() . '/js/clock.js', array('jquery'),null,true );
 	wp_register_script( 'scrollto',  get_template_directory_uri() . '/js/jquery.scrollTo-min.js', array('jquery'),null,true );
  	if ( !is_page() && !is_search() && !is_attachment() ) {
 	    wp_enqueue_script('jquery-ui-core');
@@ -204,20 +204,3 @@ add_filter( 'body_class', 'historyfuture_body_classes' );
 }    
  
 add_action('wp_enqueue_scripts', 'historyfuture_enqueue_scripts');
-
-function load_timelinr_script() {
-	if ( !is_page() && !is_search() && !is_attachment() ) { ?>
-	<script>
-
-	</script>
-<?php }
-}
-add_action('wp_footer', 'load_timelinr_script');
-
-function historyjs_init() {
-	if ( !is_page() && !is_search() && !is_attachment() ) { ?>
-	<script>
-	</script>
-<?php }
-}
-add_action('wp_footer', 'historyjs_init');

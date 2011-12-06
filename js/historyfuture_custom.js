@@ -50,3 +50,18 @@ jQuery(document).ready(function($) {
 	});
 	
 });
+
+// Homebrewed lazy load
+jQuery(window).load(function() {
+
+	// Lazy load images
+	jQuery('#issues img').each( function(index) {
+		if (jQuery(this).attr("data-src")) {
+			jQuery(this).hide().attr("src",jQuery(this).attr("data-src")).fadeIn();
+		}
+	});
+	
+	// Post load social scripts
+	jQuery.getScript("http://apis.google.com/js/plusone.js");
+	jQuery.getScript("http://platform.twitter.com/widgets.js");
+});
