@@ -771,6 +771,7 @@ img.alignright {
 	width:16px;
 	background:url(images/ajax-loader.gif) no-repeat;
 	text-indent:-9999em;
+	z-index:100;
 }
 
 /* =Clock

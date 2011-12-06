@@ -1,7 +1,5 @@
 jQuery(document).ready(function($) {
 	
-	$("#primary").prepend('<div id="ajax-loader">Loading...</div>');
-	
 	// Establish Variables
 	var
 		History = window.History, // Note: We are using a capital H instead of a lower h
@@ -23,6 +21,7 @@ jQuery(document).ready(function($) {
 		// console.log(event);
 		var selected = $('#issues').find('a[href="' + State.url + '"]');
 		if ( ! ( selected.parent('li').hasClass('selected') ) ) {
+			$("#primary").prepend('<div id="ajax-loader">Loading...</div>');
 			$("#ajax-loader").fadeIn();
 			$('#content .year-meta').fadeOut();
 			$("#primary").load(State.url + ' #primary', function(){
